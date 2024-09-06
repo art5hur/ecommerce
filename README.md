@@ -13,8 +13,12 @@ docker run -d \
     mysql
 ```
 
-> - spring.datasource.url=jdbc:mysql://localhost:3306/api?createDatabaseIfNotExist=true
-> - spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+application.properties
+
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/api?createDatabaseIfNotExist=true
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+```
 
 ## Environment
 
