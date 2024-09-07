@@ -1,0 +1,104 @@
+[33mcommit 27d0396bd50794d54c0c1e6d7ed6101f22e84c4c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/setup-database[m[33m)[m
+Author: art5hur <arthurms2004@gmail.com>
+Date:   Fri Sep 6 20:17:35 2024 -0300
+
+    Ignore .env*
+
+[33mcommit ab7c8d485bbf3074b0c469aa58de85cc2d7ceb5a[m
+Author: Laboratório FIAP <labsfiap@fiap.com.br>
+Date:   Fri Sep 6 20:10:23 2024 -0300
+
+    Setup application.properties
+
+[33mcommit 44aa628b01f4f79adf87923274013253644d981b[m[33m ([m[1;31morigin/feature/setup-database[m[33m)[m
+Author: AC <antonioclj.ac@gmail.com>
+Date:   Fri Sep 6 18:44:58 2024 -0300
+
+    Update docs
+
+[33mcommit 1d5b079ad26f8cb99e2cfcb241ea0b403394ed46[m
+Author: AC <antonioclj.ac@gmail.com>
+Date:   Fri Sep 6 18:42:05 2024 -0300
+
+    Update docs
+
+[33mcommit b31f87984072fe4bedb31a643016c770afcd93ad[m
+Author: AC <antonioclj.ac@gmail.com>
+Date:   Fri Sep 6 18:36:41 2024 -0300
+
+    Update docs
+
+[33mcommit 44cae3b71e8b83b46d0a6f1e134fcbd431864e1a[m
+Author: AC <antonioclj.ac@gmail.com>
+Date:   Fri Sep 6 18:19:55 2024 -0300
+
+    Remove testes
+
+[33mcommit 75607aaaf0b696ae74e1c024bac72f5672c2b26a[m
+Author: AC <antonioclj.ac@gmail.com>
+Date:   Fri Sep 6 18:16:22 2024 -0300
+
+    Remove teste
+
+[33mcommit 43e5ea67b75d1ad73cc726f71ecdab687c1bc5f5[m
+Author: AC <antonioclj.ac@gmail.com>
+Date:   Fri Sep 6 18:16:08 2024 -0300
+
+    Add mysql dependencies
+
+[33mcommit 4dd094bcf252de20f2325a7f792774448fa7d26f[m[33m ([m[1;31morigin/develop[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mdevelop[m[33m)[m
+Merge: ee1afb5 8632fd2
+Author: Antonio Carlos de Lima Junior <ac@marketmining.com.br>
+Date:   Fri Aug 23 22:41:56 2024 -0300
+
+    Merge pull request #2 from acnaweb/feature/setup-spring-boot
+    
+    Feature/setup spring boot
+
+[33mcommit ee1afb573d79f5290731e6bdad3395c9b1cf7992[m
+Merge: 0967d56 42d6093
+Author: Antonio Carlos de Lima Junior <ac@marketmining.com.br>
+Date:   Fri Aug 23 22:41:41 2024 -0300
+
+    Merge pull request #3 from acnaweb/feature/add-docker
+    
+    Adicionar Dockerfile
+
+[33mcommit 42d6093a71abefd433bcc13d47ea8640af3b2d84[m
+Author: Laboratório FIAP <labsfiap@fiap.com.br>
+Date:   Fri Aug 23 22:34:08 2024 -0300
+
+    Adicionar Dockerfile
+
+[33mcommit 8632fd2d3a6e845cb66bf8aaffd7cbd28785851e[m
+Author: AC <antonioclj.ac@gmail.com>
+Date:   Fri Aug 23 22:24:36 2024 -0300
+
+    Configurar application.properties
+
+[33mcommit 287684605105c001623f08f7a8da63364d679bb7[m
+Author: Laboratório FIAP <labsfiap@fiap.com.br>
+Date:   Fri Aug 23 22:06:09 2024 -0300
+
+    add teste
+
+[33mcommit 0967d561cb382f0be3b9692c9fe3f3db044b6699[m
+Merge: ba44552 1150f61
+Author: Antonio Carlos de Lima Junior <ac@marketmining.com.br>
+Date:   Fri Aug 23 21:06:09 2024 -0300
+
+    Merge pull request #1 from acnaweb/feature/add-model-produto
+    
+    Adicionar model + repository
+
+[33mcommit 1150f6197e0f4572f629dc0a96ee5ca6b24ccf61[m
+Author: Laboratório FIAP <labsfiap@fiap.com.br>
+Date:   Fri Aug 23 20:56:57 2024 -0300
+
+    Adicionar model + repository
+
+[33mcommit ba44552d89a0d6c50f21d9152b99b815cf5d016e[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Laboratório FIAP <labsfiap@fiap.com.br>
+Date:   Fri Aug 23 19:49:01 2024 -0300
+
+    first commit
