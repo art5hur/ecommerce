@@ -1,11 +1,8 @@
 package br.com.fiap.ecommerce.dtos;
 
-public class ProdutoResponseUpdateDto {
-    
-
+public class ProdutoRequestUpdateDto {
     private Long id;
-    private String nome;
-    
+	private String nome;
     
     public Long getId() {
         return id;
@@ -18,8 +15,5 @@ public class ProdutoResponseUpdateDto {
     }
     public void setNome(String nome) {
         this.nome = nome;
-    }
-    
-    
-    
-    }
+    } 
+}
