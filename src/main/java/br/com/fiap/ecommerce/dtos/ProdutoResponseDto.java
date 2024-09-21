@@ -1,5 +1,9 @@
 package br.com.fiap.ecommerce.dtos;
 
+import org.modelmapper.ModelMapper;
+
+import br.com.fiap.ecommerce.model.Produto;
+
 public class ProdutoResponseDto {
     private Long id;
 	private String nome;
