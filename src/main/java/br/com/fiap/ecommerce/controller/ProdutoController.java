@@ -3,7 +3,6 @@ package br.com.fiap.ecommerce.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,16 +19,16 @@ import br.com.fiap.ecommerce.dtos.ProdutoRequestUpdateDto;
 import br.com.fiap.ecommerce.dtos.ProdutoResponseDto;
 import br.com.fiap.ecommerce.mapper.ProdutoMapper;
 import br.com.fiap.ecommerce.service.ProdutoService;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/produtos")
+@RequiredArgsConstructor //Lombok cria o construtor anotados como obrigatório - final
+
 public class ProdutoController {
 
-    @Autowired
-    private ProdutoService produtoService;
-
-    @Autowired
-    private ProdutoMapper produtoMapper;
+    private final ProdutoService produtoService;
+    private final ProdutoMapper produtoMapper;
 
     @GetMapping
     public ResponseEntity<List<ProdutoResponseDto>> list() {
