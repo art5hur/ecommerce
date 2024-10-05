@@ -3,6 +3,7 @@ package br.com.fiap.ecommerce.controller;
 
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,72 +16,71 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.fiap.ecommerce.dtos.ProdutoRequestCreateDto;
-import br.com.fiap.ecommerce.dtos.ProdutoRequestUpdateDto;
-import br.com.fiap.ecommerce.dtos.ProdutoResponseDto;
-import br.com.fiap.ecommerce.mapper.ProdutoMapper;
-import br.com.fiap.ecommerce.service.ProdutoService;
+import br.com.fiap.ecommerce.dtos.ClienteRequestCreateDto;
+import br.com.fiap.ecommerce.dtos.ClienteRequestUpdateDto;
+import br.com.fiap.ecommerce.dtos.ClienteResponseDto;
+import br.com.fiap.ecommerce.service.ClienteService;
 
 @RestController
-@RequestMapping("/produtos")
-public class ProdutoController {
+@RequestMapping("/clientes")
+public class ClienteController {
 
     @Autowired
-    private ProdutoService produtoService;
+    private ClienteService clienteService;
 
     @Autowired
-    private ProdutoMapper produtoMapper;
+    private ModelMapper modelMapper;
 
     @GetMapping
-    public ResponseEntity<List<ProdutoResponseDto>> list() {
-        List<ProdutoResponseDto> dtos = produtoService.list()
+    public ResponseEntity<List<ClienteResponseDto>> list() {
+        List<ClienteResponseDto> dtos = clienteService.list()
                 .stream()
-                .map(e -> produtoMapper.toDto(e))
+                .map(e -> new ClienteResponseDto().toDto(e))
                 .toList();
 
         return ResponseEntity.ok().body(dtos);
     }
 
     @PostMapping
-    public ResponseEntity<ProdutoResponseDto> create(@RequestBody ProdutoRequestCreateDto dto) {    
+    public ResponseEntity<ClienteResponseDto> create(@RequestBody ClienteRequestCreateDto dto) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(
-                        produtoMapper.toDto(
-                                produtoService.save(produtoMapper.toModel(dto)))
+                        new ClienteResponseDto().toDto(
+                                clienteService.save(dto.toModel()))
                 );
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<ProdutoResponseDto> update(
+    public ResponseEntity<ClienteResponseDto> update(
             @PathVariable Long id,
-            @RequestBody ProdutoRequestUpdateDto dto) {
-        if (! produtoService.existsById(id)){
+            @RequestBody ClienteRequestUpdateDto dto) {
+        if (! clienteService.existsById(id)){
             throw new RuntimeException("Id inexistente");
         }
         return ResponseEntity.ok()
                 .body(
-                        produtoMapper.toDto(
-                                produtoService.save(produtoMapper.toModel(id, dto)))
+                        new ClienteResponseDto().toDto(
+                                clienteService.save(dto.toModel(id)))
                 );
     }
 
     @DeleteMapping("{id}")
     public void delete(@PathVariable Long id) {
-        if (! produtoService.existsById(id)){
+        if (! clienteService.existsById(id)){
             throw new RuntimeException("Id inexistente");
         }
 
-        produtoService.delete(id);
+        clienteService.delete(id);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<ProdutoResponseDto> findById(@PathVariable Long id) {
+    public ResponseEntity<ClienteResponseDto> findById(@PathVariable Long id) {
         return ResponseEntity.ok()
                 .body(
-                        produtoService
+                        clienteService
                                 .findById(id)
-                                .map(e -> produtoMapper.toDto(e))
+                                .map(e -> new ClienteResponseDto().toDto(e))
                                 .orElseThrow(() -> new RuntimeException("Id inexistente"))
                 );
 

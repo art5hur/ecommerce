@@ -31,7 +31,6 @@
 		<mysql-connector-java.version>8.0.33</mysql-connector-java.version>
 		<springdoc-openapi.version>2.5.0</springdoc-openapi.version>
 		<modelmapper.version>3.2.0</modelmapper.version>
-
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
@@ -45,7 +44,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>

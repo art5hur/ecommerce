@@ -1,6 +1,5 @@
 package br.com.fiap.ecommerce.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,72 +14,68 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.fiap.ecommerce.dtos.ProdutoRequestCreateDto;
-import br.com.fiap.ecommerce.dtos.ProdutoRequestUpdateDto;
-import br.com.fiap.ecommerce.dtos.ProdutoResponseDto;
-import br.com.fiap.ecommerce.mapper.ProdutoMapper;
-import br.com.fiap.ecommerce.service.ProdutoService;
+import br.com.fiap.ecommerce.dtos.ItemPedidoRequestCreateDto;
+import br.com.fiap.ecommerce.dtos.ItemPedidoRequestUpdateDto;
+import br.com.fiap.ecommerce.dtos.ItemPedidoResponseDto;
+import br.com.fiap.ecommerce.service.ItemPedidoService;
 
 @RestController
-@RequestMapping("/produtos")
-public class ProdutoController {
+@RequestMapping("/itemPedidos")
+public class ItemPedidoController {
 
     @Autowired
-    private ProdutoService produtoService;
-
-    @Autowired
-    private ProdutoMapper produtoMapper;
+    private ItemPedidoService itemPedidoService;
 
     @GetMapping
-    public ResponseEntity<List<ProdutoResponseDto>> list() {
-        List<ProdutoResponseDto> dtos = produtoService.list()
+    public ResponseEntity<List<ItemPedidoResponseDto>> list() {
+        List<ItemPedidoResponseDto> dtos = itemPedidoService.list()
                 .stream()
-                .map(e -> produtoMapper.toDto(e))
+                .map(e -> new ItemPedidoResponseDto().toDto(e))
                 .toList();
 
         return ResponseEntity.ok().body(dtos);
     }
 
     @PostMapping
-    public ResponseEntity<ProdutoResponseDto> create(@RequestBody ProdutoRequestCreateDto dto) {    
+    public ResponseEntity<ItemPedidoResponseDto> create(@RequestBody ItemPedidoRequestCreateDto dto) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(
-                        produtoMapper.toDto(
-                                produtoService.save(produtoMapper.toModel(dto)))
+                        new ItemPedidoResponseDto().toDto(
+                                itemPedidoService.save(dto.toModel()))
                 );
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<ProdutoResponseDto> update(
+    public ResponseEntity<ItemPedidoResponseDto> update(
             @PathVariable Long id,
-            @RequestBody ProdutoRequestUpdateDto dto) {
-        if (! produtoService.existsById(id)){
+            @RequestBody ItemPedidoRequestUpdateDto dto) {
+        if (! itemPedidoService.existsById(id)){
             throw new RuntimeException("Id inexistente");
         }
         return ResponseEntity.ok()
                 .body(
-                        produtoMapper.toDto(
-                                produtoService.save(produtoMapper.toModel(id, dto)))
+                        new ItemPedidoResponseDto().toDto(
+                                itemPedidoService.save(dto.toModel(id)))
                 );
     }
 
     @DeleteMapping("{id}")
     public void delete(@PathVariable Long id) {
-        if (! produtoService.existsById(id)){
+        if (! itemPedidoService.existsById(id)){
             throw new RuntimeException("Id inexistente");
         }
 
-        produtoService.delete(id);
+        itemPedidoService.delete(id);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<ProdutoResponseDto> findById(@PathVariable Long id) {
+    public ResponseEntity<ItemPedidoResponseDto> findById(@PathVariable Long id) {
         return ResponseEntity.ok()
                 .body(
-                        produtoService
+                        itemPedidoService
                                 .findById(id)
-                                .map(e -> produtoMapper.toDto(e))
+                                .map(e -> new ItemPedidoResponseDto().toDto(e))
                                 .orElseThrow(() -> new RuntimeException("Id inexistente"))
                 );
 

@@ -4,11 +4,11 @@ import org.modelmapper.ModelMapper;
 
 import br.com.fiap.ecommerce.model.Produto;
 
+import java.math.BigDecimal;
+
 public class ProdutoRequestCreateDto {
     private String nome;
-
-    private static final ModelMapper modelMapper = new ModelMapper();
-
+    private BigDecimal valor;
 
     public String getNome() {
         return nome;
@@ -18,10 +18,14 @@ public class ProdutoRequestCreateDto {
         this.nome = nome;
     }
 
-    public Produto toModel(){
-        
-        return modelMapper.map(this, Produto.class);
-           
+    public BigDecimal getValor() {
+        return valor;
     }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+
     
 }
