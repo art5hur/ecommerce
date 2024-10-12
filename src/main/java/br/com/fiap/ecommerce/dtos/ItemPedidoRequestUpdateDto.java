@@ -8,11 +8,11 @@ import br.com.fiap.ecommerce.model.ItemPedido;
 
 public class ItemPedidoRequestUpdateDto {
 	private Long idPedido;
-	private Long idProduto;
-	private BigDecimal quantidade;
-	private BigDecimal valorTotal;
-	private static final ModelMapper modelMapper = new ModelMapper();
-
+    private Long idProduto;
+    private BigDecimal quantidade;
+    private BigDecimal valorTotal;
+    private static final ModelMapper modelMapper = new ModelMapper();
+    
 	public Long getIdPedido() {
 		return idPedido;
 	}
@@ -37,11 +37,11 @@ public class ItemPedidoRequestUpdateDto {
 	public void setValorTotal(BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
 	}
-
+    
 	public ItemPedido toModel(Long id) {
 		ItemPedido result = modelMapper.map(this, ItemPedido.class);
-		result.setId(id);
-		return result;
-	}
-
+        result.setId(id);
+        return result;
+    }  
+    
 }

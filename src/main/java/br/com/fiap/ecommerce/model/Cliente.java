@@ -13,30 +13,29 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 	
-	@Column(nullable = false, length = 20)
-    private String nome;
+	@Column(nullable = false, length = 60)
+	private String nome;
 	
-	@Column(nullable = false, length = 9)
+	@Column(nullable = false, length = 8)
     private String cep;
-	
-	@Column(length = 100)
+    
+	@Column(nullable = false, length = 60)
     private String logradouro;
-	
+    
 	@Column(nullable = false, length = 10)
     private String numero;
-	
-	@Column(length = 50)
+    
+    @Column(length = 50)
     private String complemento;
     
-	@Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 50)
     private String bairro;
     
-	@Column(nullable = false, length = 30)
+    @Column(length = 50)
     private String municipio;
     
     @Column(nullable = false, length = 2)
     private String uf;
-    
     
     public Long getId() {
         return id;

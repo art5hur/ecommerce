@@ -41,7 +41,7 @@ export $(cat .env | xargs)
 * run
 
 ```sh
-mvn spring-boot:run -Dspring-boot.run.profiles=dev
+mvn spring-boot:run -Dspring-boot.run.profiles=prd
 ```
 
 ## Docker
@@ -64,8 +64,5 @@ docker run -d \
     -e DATABASE_PWD=root_pwd \
     ecommerce
 ```
-
-
-
 
 

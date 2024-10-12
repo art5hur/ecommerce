@@ -9,14 +9,14 @@ import br.com.fiap.ecommerce.model.ItemPedido;
 public class ItemPedidoResponseDto {
 	private Long id;
 	private Long idPedido;
-	private Long idProduto;
-	private BigDecimal quantidade;
-	private BigDecimal valorTotal;
-	private static final ModelMapper modelMapper = new ModelMapper();
-
-	public ItemPedidoResponseDto toDto(ItemPedido itemPedido) {
-		return modelMapper.map(itemPedido, ItemPedidoResponseDto.class);
-	}
+    private Long idProduto;
+    private BigDecimal quantidade;
+    private BigDecimal valorTotal;
+    private static final ModelMapper modelMapper = new ModelMapper();
+    
+    public ItemPedidoResponseDto toDto(ItemPedido itemPedido) {
+        return modelMapper.map(itemPedido, ItemPedidoResponseDto.class);
+    }
 
 	public Long getId() {
 		return id;

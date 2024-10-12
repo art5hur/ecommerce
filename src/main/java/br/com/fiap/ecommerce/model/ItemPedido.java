@@ -13,8 +13,9 @@ public class ItemPedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-	private Long idPedido;
-	private Long idProduto;
+	
+    private Long idPedido;
+    private Long idProduto;
 
     @Column(precision = 16, scale = 2)
     private BigDecimal quantidade;
@@ -61,7 +62,9 @@ public class ItemPedido {
 	public void setValorTotal(BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
 	}
- 
+    
+    
+    
     
     
 }

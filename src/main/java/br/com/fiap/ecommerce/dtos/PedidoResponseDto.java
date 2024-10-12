@@ -10,22 +10,15 @@ import br.com.fiap.ecommerce.model.Pedido;
 public class PedidoResponseDto {
 	private Long id;
 	private Long idCliente;
-	private LocalDate dataPedido;
-	private String status;
-	private String formaPagamento;
-	private BigDecimal valorTotal;
-	
-	private static final ModelMapper modelMapper = new ModelMapper();
+    private LocalDate dataPedido;
+    private String status;
+    private String formaPagamento;
+    private BigDecimal valorTotal;
+    private static final ModelMapper modelMapper = new ModelMapper();
 
-	public PedidoResponseDto toDto(Pedido pedido) {
-		return modelMapper.map(pedido, PedidoResponseDto.class);
-
-		// ProdutoResponseDto result = new ProdutoResponseDto();
-		// result.setId(produto.getId());
-		// result.setNome(produto.getNome());
-
-		// return result;
-	}
+    public PedidoResponseDto toDto(Pedido pedido) {
+        return modelMapper.map(pedido, PedidoResponseDto.class);
+    }
 
 	public Long getId() {
 		return id;
@@ -74,9 +67,6 @@ public class PedidoResponseDto {
 	public void setValorTotal(BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
 	}
-
-	
-	
-	
-
+    
+    
 }

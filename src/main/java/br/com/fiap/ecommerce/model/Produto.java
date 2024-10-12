@@ -22,6 +22,4 @@ public class Produto {
 	@Column(precision = 16, scale = 2)
 	private BigDecimal valor;
 
-	
-
 }

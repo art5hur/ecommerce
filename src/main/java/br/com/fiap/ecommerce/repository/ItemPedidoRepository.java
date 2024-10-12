@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 import br.com.fiap.ecommerce.model.ItemPedido;
 
 @Repository
-public interface ItemPedidoRepository 
-	extends JpaRepository<ItemPedido, Long> {
+public interface ItemPedidoRepository extends JpaRepository<ItemPedido, Long> {
 }

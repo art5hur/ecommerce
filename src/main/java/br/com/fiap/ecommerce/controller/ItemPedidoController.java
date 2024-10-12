@@ -22,63 +22,63 @@ import br.com.fiap.ecommerce.service.ItemPedidoService;
 @RestController
 @RequestMapping("/itemPedidos")
 public class ItemPedidoController {
-
-    @Autowired
+	
+	@Autowired
     private ItemPedidoService itemPedidoService;
 
     @GetMapping
     public ResponseEntity<List<ItemPedidoResponseDto>> list() {
         List<ItemPedidoResponseDto> dtos = itemPedidoService.list()
-                .stream()
-                .map(e -> new ItemPedidoResponseDto().toDto(e))
-                .toList();
-
+            .stream()
+            .map(e -> new ItemPedidoResponseDto().toDto(e))
+            .toList();
+        
         return ResponseEntity.ok().body(dtos);
     }
 
     @PostMapping
-    public ResponseEntity<ItemPedidoResponseDto> create(@RequestBody ItemPedidoRequestCreateDto dto) {
+    public ResponseEntity<ItemPedidoResponseDto> create(@RequestBody ItemPedidoRequestCreateDto dto) {        
         return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(
-                        new ItemPedidoResponseDto().toDto(
-                                itemPedidoService.save(dto.toModel()))
-                );
+        		.status(HttpStatus.CREATED)
+        		.body(
+        			new ItemPedidoResponseDto().toDto(
+        					itemPedidoService.save(dto.toModel()))
+        			);
     }
 
     @PutMapping("{id}")
     public ResponseEntity<ItemPedidoResponseDto> update(
-            @PathVariable Long id,
-            @RequestBody ItemPedidoRequestUpdateDto dto) {
+                        @PathVariable Long id, 
+                        @RequestBody ItemPedidoRequestUpdateDto dto) {
         if (! itemPedidoService.existsById(id)){
             throw new RuntimeException("Id inexistente");
-        }
+        }                
         return ResponseEntity.ok()
-                .body(
-                        new ItemPedidoResponseDto().toDto(
-                                itemPedidoService.save(dto.toModel(id)))
-                );
+        		.body(
+        			new ItemPedidoResponseDto().toDto(
+        				itemPedidoService.save(dto.toModel(id)))
+        		);
     }
-
+    
     @DeleteMapping("{id}")
     public void delete(@PathVariable Long id) {
         if (! itemPedidoService.existsById(id)){
-            throw new RuntimeException("Id inexistente");
+        	throw new RuntimeException("Id inexistente");
         }
 
         itemPedidoService.delete(id);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<ItemPedidoResponseDto> findById(@PathVariable Long id) {
-        return ResponseEntity.ok()
-                .body(
-                        itemPedidoService
-                                .findById(id)
-                                .map(e -> new ItemPedidoResponseDto().toDto(e))
-                                .orElseThrow(() -> new RuntimeException("Id inexistente"))
-                );
-
+    public ResponseEntity<ItemPedidoResponseDto> findById(@PathVariable Long id) {    	
+    	return ResponseEntity.ok()
+    			.body(
+    				itemPedidoService
+    					.findById(id)
+    					.map(e -> new ItemPedidoResponseDto().toDto(e))
+    					.orElseThrow(() -> new RuntimeException("Id inexistente"))
+    			);
+    	  		     
     }
 
 }

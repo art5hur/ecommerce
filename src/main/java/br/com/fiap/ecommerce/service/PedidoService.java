@@ -1,16 +1,15 @@
 package br.com.fiap.ecommerce.service;
 
-import br.com.fiap.ecommerce.model.Pedido;
-import br.com.fiap.ecommerce.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
+import br.com.fiap.ecommerce.model.Pedido;
+import br.com.fiap.ecommerce.repository.PedidoRepository;
 
 @Service
 public class PedidoService {
-    
+
     @Autowired
     private PedidoRepository pedidoRepository;
 
@@ -22,7 +21,7 @@ public class PedidoService {
         return pedidoRepository.save(pedido);
     }
 
-    public boolean existsById(Long id) {        
+    public boolean existsById(Long id) {
         return pedidoRepository.existsById(id);
     }
 
@@ -33,6 +32,4 @@ public class PedidoService {
     public Optional<Pedido> findById(Long id) {
         return pedidoRepository.findById(id);
     }
-
-   
 }

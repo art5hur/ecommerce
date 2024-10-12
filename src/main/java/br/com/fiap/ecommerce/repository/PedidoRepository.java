@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 import br.com.fiap.ecommerce.model.Pedido;
 
 @Repository
-public interface PedidoRepository 
-	extends JpaRepository<Pedido, Long> {
+public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 }
